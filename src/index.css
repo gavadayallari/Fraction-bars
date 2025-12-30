@@ -1,0 +1,709 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #5fbe7a;
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: #5fbe7a;
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: #5fbe7a;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #5fbe7a;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: #5fbe7a;
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-nunito: Nunito, sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Nunito, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(0, 0%, 50%) hsl(0, 0%, 95%);
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 95%);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(0, 0%, 95%);
+    border-radius: 14px;
+    border: 3px solid hsl(0, 0%, 95%);
+  }
+}
+
+@layer utilities {
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling on orientation change in iOS */
+  text-size-adjust: 100%;
+}
+
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  }
+
+  to {
+    background-position: 1000px 1000px, 1040px 1060px, 1130px 1270px,
+      1070px 1100px;
+  }
+}
+
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  }
+
+  to {
+    background-position: 1000px 1000px, 1040px 1060px, 1130px 1270px,
+      1070px 1100px;
+  }
+}
+
+@keyframes shakeHard {
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  20% {
+    transform: translateX(-10px) rotate(-5deg);
+  }
+
+  40% {
+    transform: translateX(10px) rotate(5deg);
+  }
+
+  60% {
+    transform: translateX(-10px) rotate(-5deg);
+  }
+
+  80% {
+    transform: translateX(10px) rotate(5deg);
+  }
+}
+
+.shake-hard {
+  animation: shakeHard 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.shake-hard img {
+  animation: shakeHard 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes floatFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.8);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-float-fade {
+  animation: floatFade 2s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+/* Improve touch handling on mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    touch-action: manipulation;
+  }
+
+  .grid>div {
+    touch-action: none;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInFromRight {
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+.animate-slideInFromLeft {
+  animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Orientation Guard Styles */
+.orientation-guard-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .orientation-guard-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(36, 36, 36, 0.98);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    pointer-events: all;
+    /* Block clicks behind */
+  }
+
+  .orientation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 300px;
+  }
+
+  .orientation-message {
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .rotate-icon {
+    animation: rotate-phone 2s infinite ease-in-out;
+    color: var(--primary);
+  }
+}
+
+@keyframes rotate-phone {
+
+  0%,
+  10% {
+    transform: rotate(0deg);
+  }
+
+  40%,
+  60% {
+    transform: rotate(90deg);
+  }
+
+  90%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Mobile Landscape Layout Fixes */
+.game-root {
+  padding-top: 72px;
+  /* Default Desktop/Portrait Padding */
+}
+
+/* Reduce top padding for Laptop screens */
+@media screen and (min-width: 1024px) {
+  .game-root {
+    padding-top: 10px;
+  }
+}
+
+
+/* Scaled Layout Approach handled via JS hook now. 
+   Removed manual CSS overrides for mobile landscape to ensure "desktop-like" appearance. 
+*/
+
+
+/* Global Landscape Action Button Styles */
+.landscape-action-button {
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  /* Max Z-Index to ensure it's on top of scaled 3D content */
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  touch-action: manipulation;
+  pointer-events: auto !important;
+  /* Force clickability */
+  cursor: pointer;
+
+  /* Corner Positioning */
+  bottom: 5px;
+  right: 15px;
+
+  /* Reduced, Responsive Size */
+  /* Min 40px (touch safe), Preferred 5vw, Max 60px */
+  width: clamp(40px, 5vw, 60px);
+  height: clamp(40px, 5vw, 60px);
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.landscape-action-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.landscape-action-button:active {
+  transform: scale(0.95);
+}
+
+.landscape-action-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Specific adjustment for Mobile to ensure touch target is adequate but visually clean */
+@media screen and (max-width: 768px) {
+  .landscape-action-button {
+    right: 15px;
+    bottom: 5px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* =========================================
+   Device-Specific Landscape Adjustments
+   ========================================= */
+
+/* 1. iPhone SE, Samsung Galaxy S8+, and other small Height phones */
+/* Height usually < 450px in landscape */
+@media screen and (max-height: 450px) and (orientation: landscape) {
+
+  /* Scale down more aggressively for very small screens */
+  .sidebar-container {
+    transform: scale(0.65);
+    transform-origin: top left;
+  }
+
+  .hint-guide-container {
+    transform: scale(0.65);
+    transform-origin: top right;
+  }
+
+  .landscape-action-button {
+    transform: scale(0.75);
+    transform-origin: bottom right;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Force side-by-side layout (Left Panel left of Board) */
+  .game-top-section {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-top: 50px !important;
+  }
+
+  /* Force Left Panel Items to be Vertical (Column) */
+  .game-left-panel-wrapper>div {
+    flex-direction: column !important;
+    width: 130px !important;
+    /* Fixed width for vertical stack */
+    height: auto !important;
+    min-height: 480px !important;
+    /* Allow height to grow */
+    padding: 18px !important;
+    gap: 16px !important;
+  }
+
+  /* Adjust each fraction item in the left panel */
+  .game-left-panel-wrapper>div>div {
+    width: 85% !important;
+    height: 75px !important;
+    /* Smaller height */
+    flex: none !important;
+    font-size: 25px !important;
+  }
+
+  /* --- Component Overrides for Small Landscape --- */
+
+  /* Reduce Board Padding & Min-Height */
+  .game-board-wrapper>div {
+    padding: 2rem !important;
+    /* p-2 */
+    min-height: 480px !important;
+    /* Reduce from 300px */
+    gap: 12px !important;
+  }
+
+  /* Reduce Control Panel Padding & Spacing */
+  .game-control-panel-wrapper>div {
+    height: 120px !important;
+    padding: 0.5rem !important;
+    gap: 0.2rem !important;
+    margin-top: 5px !important;
+  }
+
+  /* Control Panel Row Styling: Center & Spacing */
+  .game-control-panel-wrapper .flex.items-center {
+    justify-content: center !important;
+    width: 95% !important;
+    margin-top: 8px !important;
+  }
+
+  /* Label Gap (Left) */
+  .game-control-panel-wrapper span:nth-of-type(1) {
+    padding-left: 20px !important;
+    text-align: right !important;
+  }
+
+  /* Value Gap (Right) */
+  .game-control-panel-wrapper span:nth-of-type(2) {
+    padding-right: 20px !important;
+    text-align: left !important;
+  }
+
+  /* Make Sliders Compact & Reduced Width */
+  .game-control-panel-wrapper input[type="range"] {
+    width: 85% !important;
+    height: 8px !important;
+    margin: 0 auto !important;
+  }
+
+  .game-control-panel-wrapper input[type="range"]::-webkit-slider-thumb {
+    width: 16px !important;
+    height: 16px !important;
+    border-width: 2px !important;
+  }
+
+  /* Fraction Rows & Blocks */
+  .game-board-wrapper .flex-nowrap {
+    gap: 8px !important;
+    /* Tighter row gap */
+  }
+
+  .game-board-wrapper .flex-nowrap>div {
+    height: 74px !important;
+    /* Reduce block height from 40px */
+    font-size: 25px !important;
+    /* Smaller text */
+    border-bottom-width: 3px !important;
+  }
+}
+
+/* Specific Override: Revert gap for very small height phones (iPhone SE, S8+, etc.) */
+@media screen and (max-height: 380px) and (max-width: 820px) and (orientation: landscape) {
+  .game-left-panel-wrapper>div {
+    gap: 4px !important;
+  }
+}
+
+/* 2. Surface Duo and similar medium-height devices */
+/* Height usually ~540px (between 450px and 600px) */
+@media screen and (min-height: 451px) and (max-height: 600px) and (orientation: landscape) {
+
+  /* Scale down more aggressively for very small screens */
+  .sidebar-container {
+    transform: scale(0.65);
+    transform-origin: top left;
+  }
+
+  .hint-guide-container {
+    transform: scale(0.65);
+    transform-origin: top right;
+  }
+
+  .landscape-action-button {
+    transform: scale(0.75);
+    transform-origin: bottom right;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Force side-by-side layout (Left Panel left of Board) */
+  .game-top-section {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-top: 50px !important;
+  }
+
+  /* Force Left Panel Items to be Vertical (Column) */
+  .game-left-panel-wrapper>div {
+    flex-direction: column !important;
+    width: 130px !important;
+    /* Fixed width for vertical stack */
+    height: auto !important;
+    min-height: 480px !important;
+    /* Allow height to grow */
+    padding: 18px !important;
+    gap: 14px !important;
+  }
+
+  /* Adjust each fraction item in the left panel */
+  .game-left-panel-wrapper>div>div {
+    width: 85% !important;
+    height: 75px !important;
+    /* Smaller height */
+    flex: none !important;
+    font-size: 25px !important;
+  }
+
+  /* --- Component Overrides for Small Landscape --- */
+
+  /* Reduce Board Padding & Min-Height */
+  .game-board-wrapper>div {
+    padding: 2rem !important;
+    /* p-2 */
+    min-height: 480px !important;
+    /* Reduce from 300px */
+    gap: 12px !important;
+  }
+
+  /* Reduce Control Panel Padding & Spacing */
+  .game-control-panel-wrapper>div {
+    height: 120px !important;
+    padding: 0.5rem !important;
+    gap: 0.2rem !important;
+    margin-top: 10px !important;
+  }
+
+  /* Control Panel Row Styling: Center & Spacing */
+  .game-control-panel-wrapper .flex.items-center {
+    justify-content: center !important;
+    width: 95% !important;
+  }
+
+  /* Label Gap (Left) */
+  .game-control-panel-wrapper span:nth-of-type(1) {
+    padding-left: 20px !important;
+    text-align: right !important;
+    font-size: 20px !important;
+  }
+
+  /* Value Gap (Right) */
+  .game-control-panel-wrapper span:nth-of-type(2) {
+    padding-right: 20px !important;
+    text-align: left !important;
+    font-size: 34px !important;
+  }
+
+  /* Make Sliders Compact & Reduced Width */
+  .game-control-panel-wrapper input[type="range"] {
+    width: 65% !important;
+    height: 8px !important;
+    margin: 0 auto !important;
+  }
+
+  .game-control-panel-wrapper input[type="range"]::-webkit-slider-thumb {
+    width: 16px !important;
+    height: 16px !important;
+    border-width: 2px !important;
+  }
+
+  /* Fraction Rows & Blocks */
+  .game-board-wrapper .flex-nowrap {
+    gap: 8px !important;
+    /* Tighter row gap */
+  }
+
+  .game-board-wrapper .flex-nowrap>div {
+    height: 74px !important;
+    /* Reduce block height from 40px */
+    font-size: 25px !important;
+    /* Smaller text */
+    border-bottom-width: 3px !important;
+  }
+}
