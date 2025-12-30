@@ -12,6 +12,7 @@ export default function FractionBlock({ filled, label, color }: Props) {
         transition-all duration-300
         ${filled ? `${color} text-white` : "bg-white text-black"}
       `}
+            style={{ color: filled ? "white" : undefined }}
         >
             <div className="flex flex-col items-center leading-none">
                 {/* Simple parsing of specific fractions like 1/8 to stack them?

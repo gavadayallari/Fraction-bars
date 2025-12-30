@@ -14,11 +14,11 @@ import LeftFractionPanel from "@/components/fraction-bars/LeftFractionPanel";
 import ControlPanel from "@/components/fraction-bars/ControlPanel";
 
 const ROWS = [
-  { denominator: 2, numerator: 1, color: "bg-[#2ECC71]" }, // Green
-  { denominator: 4, numerator: 2, color: "bg-[#3498DB]" }, // Blue
-  { denominator: 6, numerator: 3, color: "bg-[#E74C3C]" }, // Red
-  { denominator: 8, numerator: 4, color: "bg-[#22D3EE]" }, // Cyan
-  { denominator: 10, numerator: 5, color: "bg-[#9B59B6]" }, // Purple
+  { denominator: 2, numerator: 1, color: "bg-[#2ECC71]", colorHex: "#2ECC71" }, // Green
+  { denominator: 4, numerator: 2, color: "bg-[#3498DB]", colorHex: "#3498DB" }, // Blue
+  { denominator: 6, numerator: 3, color: "bg-[#E74C3C]", colorHex: "#E74C3C" }, // Red
+  { denominator: 8, numerator: 4, color: "bg-[#22D3EE]", colorHex: "#22D3EE" }, // Cyan
+  { denominator: 10, numerator: 5, color: "bg-[#9B59B6]", colorHex: "#9B59B6" }, // Purple
 ];
 
 const GamePreview = forwardRef<

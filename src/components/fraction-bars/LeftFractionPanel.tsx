@@ -2,6 +2,7 @@ type RowConfig = {
     denominator: number;
     numerator: number; // The target numerator to display (e.g. 4 for 4/8)
     color: string;
+    colorHex: string;
 };
 
 type Props = {
@@ -26,23 +27,20 @@ export default function LeftFractionPanel({ rows, activeRowIndex, onSelect }: Pr
                     <div
                         key={index}
                         className={`
-            h-12 md:h-15.5 w-full flex-1 md:flex-none rounded-md text-white font-bold text-sm md:text-lg flex items-center justify-center shadow-sm cursor-pointer hover:scale-105 transition-transform active:scale-95
-            ${row.color}
-            ${isActive
-                                ? "ring-2 md:ring-4 ring-[#F1C40F] scale-105 md:scale-110 z-10 shadow-lg"
-                                : "opacity-100 hover:scale-105"
-                            }
+            h-12 md:h-15.5 w-full flex-1 md:flex-none rounded-md font-bold text-sm md:text-lg flex items-center justify-center shadow-sm cursor-pointer hover:scale-105 transition-transform active:scale-95
+            ${isActive ? "bg-white scale-105 md:scale-110 z-10 shadow-lg" : `${row.color} opacity-100 hover:scale-105 text-white`}
           `}
                         style={{
-                            backgroundImage: `url('images/Frame-Number-${index + 1}.png')`,
+                            backgroundImage: isActive ? "none" : `url('images/Frame-Number-${index + 1}.png')`,
                             backgroundSize: "100% 100%",
                             backgroundRepeat: "no-repeat",
+                            color: isActive ? row.colorHex : "white",
                         }}
                         onClick={() => onSelect(row.numerator, row.denominator, index)}
                     >
                         <div className="flex flex-col items-center leading-none">
                             <span>{row.numerator}</span>
-                            <div className="w-full h-0.5 bg-white/60 my-0.5"></div>
+                            <div className={`w-full h-0.5 my-0.5 ${isActive ? "" : "bg-white/60"}`} style={{ backgroundColor: isActive ? row.colorHex : undefined }}></div>
                             <span>{row.denominator}</span>
                         </div>
                     </div>

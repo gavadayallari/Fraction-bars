@@ -5,12 +5,10 @@ type RowConfig = {
     denominator: number;
     numerator: number;
     color: string;
+    colorHex: string;
 };
 
 type Props = {
-    numerator: number;
-    denominator: number;
-    disabled: boolean;
     rows: RowConfig[];
 };
 

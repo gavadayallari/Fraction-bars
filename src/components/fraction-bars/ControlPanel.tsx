@@ -13,6 +13,13 @@ export default function ControlPanel({
     setDenominator,
     disabled,
 }: Props) {
+    const getBackgroundStyle = (value: number, min: number, max: number) => {
+        const percentage = ((value - min) / (max - min)) * 100;
+        return {
+            background: `linear-gradient(to right, white 0%, white ${percentage}%, #A0522D ${percentage}%, #A0522D 100%)`
+        };
+    };
+
     return (
         <div
             className="w-full max-w-7xl p-4 md:p-10 rounded-xl shadow-2xl flex flex-col gap-4"
@@ -35,7 +42,8 @@ export default function ControlPanel({
                         value={numerator}
                         onChange={(e) => setNumerator(+e.target.value)}
                         disabled={disabled}
-                        className="w-full h-3 bg-white rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 md:[&::-webkit-slider-thumb]:w-8 md:[&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:bg-[#F4C430] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-[#B8860B]"
+                        style={getBackgroundStyle(numerator, 0, 20)}
+                        className="w-full h-3 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 md:[&::-webkit-slider-thumb]:w-8 md:[&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:bg-[#F4C430] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-[#B8860B]"
                     />
                 </div>
                 <span className="text-white font-bold text-xl w-8 text-right">
@@ -59,7 +67,8 @@ export default function ControlPanel({
                             setDenominator(newDen);
                         }}
                         disabled={disabled}
-                        className="w-full h-3 bg-white rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 md:[&::-webkit-slider-thumb]:w-8 md:[&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:bg-[#F4C430] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-[#B8860B]"
+                        style={getBackgroundStyle(denominator, 1, 20)}
+                        className="w-full h-3 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 md:[&::-webkit-slider-thumb]:w-8 md:[&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:bg-[#F4C430] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-[#B8860B]"
                     />
                 </div>
                 <span className="text-white font-bold text-xl w-8 text-right">
