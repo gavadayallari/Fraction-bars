@@ -35,7 +35,7 @@ const GamePreview = forwardRef<
       isLastLevel: boolean;
     }) => void;
   }
->(({ gameId, config, sendDataToParent }, _ref) => {
+>(({ gameId, config }, _ref) => {
   /* ---------------- SCALING HOOK ---------------- */
   // Must be called before any conditional returns
   const scaledStyle = useMobileLandscapeScaler();
@@ -212,7 +212,7 @@ const GamePreview = forwardRef<
               <LeftFractionPanel
                 rows={rows}
                 activeRowIndex={activeRowIndex}
-                onSelect={(num, den, index) => {
+                onSelect={(_num, _den, index) => {
                   if (!gameState.isPlaying) return;
                   setActiveRowIndex(index);
                 }}

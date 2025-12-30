@@ -15,8 +15,6 @@ type Props = {
 };
 
 export default function FractionBarsBoard({
-    numerator,
-    denominator,
     rows,
 }: Props) {
 

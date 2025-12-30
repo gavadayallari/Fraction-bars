@@ -37,7 +37,6 @@ export const FractionEngine = {
     compare: (f1: Fraction, f2: Fraction): ComparisonResult => {
         const v1 = f1.numerator / f1.denominator;
         const v2 = f2.numerator / f2.denominator;
-        const epsilon = 0.001;
 
         // Check Equivalence first: (n1 * d2) == (n2 * d1)
         if (f1.numerator * f2.denominator === f2.numerator * f1.denominator) {
