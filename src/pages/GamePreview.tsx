@@ -222,9 +222,6 @@ const GamePreview = forwardRef<
 
             <div className="game-board-wrapper w-full flex-1">
               <FractionBarsBoard
-                numerator={numerator} // Backwards compat, useless now
-                denominator={denominator} // Backwards compat, useless now
-                disabled={!gameState.isPlaying}
                 rows={rows}
               />
             </div>
