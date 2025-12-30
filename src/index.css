@@ -471,7 +471,7 @@ body,
 @media screen and (max-height: 450px) and (orientation: landscape) {
 
   /* Scale down more aggressively for very small screens */
-  .sidebar-container {
+  .sidebar-container>div {
     transform: scale(0.65);
     transform-origin: top left;
   }
@@ -491,7 +491,7 @@ body,
   /* Force side-by-side layout (Left Panel left of Board) */
   .game-top-section {
     flex-direction: row !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
     gap: 8px !important;
     margin-top: 50px !important;
   }
@@ -595,7 +595,7 @@ body,
 @media screen and (min-height: 451px) and (max-height: 600px) and (orientation: landscape) {
 
   /* Scale down more aggressively for very small screens */
-  .sidebar-container {
+  .sidebar-container>div {
     transform: scale(0.65);
     transform-origin: top left;
   }
@@ -615,7 +615,7 @@ body,
   /* Force side-by-side layout (Left Panel left of Board) */
   .game-top-section {
     flex-direction: row !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
     gap: 8px !important;
     margin-top: 50px !important;
   }
@@ -625,7 +625,7 @@ body,
     flex-direction: column !important;
     width: 130px !important;
     /* Fixed width for vertical stack */
-    height: auto !important;
+    height: 100% !important;
     min-height: 480px !important;
     /* Allow height to grow */
     padding: 18px !important;
