@@ -242,11 +242,7 @@ const GamePreview = forwardRef<
         </div>
 
         {/* -------- OVERLAYS -------- */}
-        <TapToStart
-          firstTap={firstTap}
-          setFirstTap={setFirstTap}
-          handleStartGame={handleStartGame}
-        />
+
 
         <CountdownTimer
           initialTime={0}
@@ -258,6 +254,13 @@ const GamePreview = forwardRef<
           hideTimer={true}
         />
       </div>
+
+      {/* -------- OVERLAYS OUTSIDE SCALED DIV -------- */}
+      <TapToStart
+        firstTap={firstTap}
+        setFirstTap={setFirstTap}
+        handleStartGame={handleStartGame}
+      />
 
       <PreviewSidebar
         resetGame={handleResetGame}
