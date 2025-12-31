@@ -73,7 +73,7 @@ const HintGuide = ({
             </DialogTrigger>
           )}
         </div>
-        <DialogContent className="md:max-w-80 max-w-72 lg:max-w-[425px] max-h-[80vh] overflow-hidden flex flex-col p-0 gap-0">
+        <DialogContent className="md:max-w-80 max-w-72 lg:max-w-[725px] max-h-[80vh] overflow-hidden flex flex-col p-0 gap-0">
           {/* Fixed, compact title header */}
           <div className="p-2 h-10 w-full flex items-center justify-center bg-white z-10 px-3">
             <DialogTitle className="text-base font-semibold">
@@ -81,7 +81,7 @@ const HintGuide = ({
             </DialogTitle>
             {mode === "how" && (
               <DialogDescription className="sr-only">
-                Connect the Dots game instructions
+                Fraction Bars game instructions
               </DialogDescription>
             )}
           </div>
@@ -91,30 +91,40 @@ const HintGuide = ({
               } overflow-y-scroll overflow-x-hidden custom-scroll p-2`}
           >
             {mode === "how" ? (
-              <ul className="text-left inline-block mx-auto text-base text-gray-700 space-y-3 leading-relaxed">
-                <li className="flex items-start gap-2">
-                  <span className="shrink-0 w-6 text-center">🔢</span>
-                  <span>
-                    Select a row from the left side.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="shrink-0 w-6 text-center">✍️</span>
-                  <span>
-                    Use the Denominator slider to divide the bar into equal parts.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="shrink-0 w-6 text-center">🔄 </span>
-                  <span>
-                    Use the Numerator slider to fill parts from the left (numerator ≤ denominator)..
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="shrink-0 w-6 text-center">🎉</span>
-                  <span>Compare the bars to understand fractions and complete the activity!</span>
-                </li>
-              </ul>
+              <div className="text-left inline-block mx-auto text-base text-gray-700 space-y-4 leading-relaxed">
+
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0 w-6 text-center text-xl">🔢</span>
+                    <div>
+                      <span className="font-bold block">Select a Row</span>
+                      <span>Choose one fraction row from the left panel. Only the selected row will change.</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0 w-6 text-center text-xl">✍️</span>
+                    <div>
+                      <span className="font-bold block">Set the Denominator</span>
+                      <span>Use the Denominator slider to divide the bar into equal parts.</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0 w-6 text-center text-xl">🔄</span>
+                    <div>
+                      <span className="font-bold block">Set the Numerator</span>
+                      <span>Use the Numerator slider to fill parts of the bar from the left.</span>
+                      <span className="block italic text-sm">(The numerator and denominator sliders work independently.)</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0 w-6 text-center text-xl">👀</span>
+                    <div>
+                      <span className="font-bold block">Compare and Observe</span>
+                      <span>Look at how different fraction bars line up to compare their sizes and understand equivalent fractions.</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             ) : (
               <DialogDescription
                 className="text-black text-center"

@@ -1,6 +1,6 @@
 {
   "title": "Your Game title",
-  "instructions": "Your game instructions",
+  "instructions": "Select a Row: Choose one fraction row. Set the Denominator: Divide the bar. Set the Numerator: Fill parts. Compare and Observe.",
   "duration": 120,
   "showAnswers": true,
   "showRestartButton": true,

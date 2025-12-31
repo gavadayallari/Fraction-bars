@@ -6,7 +6,7 @@ import { useMobileLandscapeScaler } from "@/hooks/useMobileLandscapeScaler";
 import type { GameConfigType, GameStateType } from "@/types/TGames";
 import Image from "@/components/ui/image";
 import type { RefType } from "@/App";
-import { resolveBackgroundCss, uploadedAssetURL } from "@/lib/utils";
+import { resolveBackgroundCss } from "@/lib/utils";
 import TapToStart from "@/components/TapToStart";
 import HintGuide from "@/components/HintGuide";
 import FractionBarsBoard from "@/components/fraction-bars/FractionBarsBoard";
@@ -103,13 +103,8 @@ const GamePreview = forwardRef<
   const backgroundMusicRef = useRef<HTMLAudioElement>(
     new Audio("media/background.mp3")
   );
-  const instructionsAudioRef = useRef<HTMLAudioElement>(
-    new Audio(
-      config?.audio?.instructions?.src
-        ? uploadedAssetURL({ gameId, src: config.audio.instructions.src })
-        : "media/instructions.webm"
-    )
-  );
+  // Instructions audio removed
+  // const instructionsAudioRef = useRef<HTMLAudioElement>(...);
 
   useEffect(() => {
     backgroundMusicRef.current.loop = true;
@@ -131,15 +126,16 @@ const GamePreview = forwardRef<
     return () => {
       // Cleanup
     };
-  }, [gameState.hasStarted, gameState.isMuted]); // Removing isPlaying dependency
-
+  }, [gameState.hasStarted, gameState.isMuted]);
 
   // Ensure music stops when component unmounts
   useEffect(() => {
     return () => {
-      backgroundMusicRef.current.pause();
-      backgroundMusicRef.current.currentTime = 0;
-    }
+      if (backgroundMusicRef.current) {
+        backgroundMusicRef.current.pause();
+        backgroundMusicRef.current.currentTime = 0;
+      }
+    };
   }, []);
 
 
@@ -154,7 +150,7 @@ const GamePreview = forwardRef<
 
   /* ---------------- START ---------------- */
   const handleStartGame = () => {
-    if (!gameState.isMuted) instructionsAudioRef.current.play();
+    // Audio play removed
     setGameState((prev) => ({
       ...prev,
       isPlaying: true,
